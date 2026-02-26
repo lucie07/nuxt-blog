@@ -65,7 +65,7 @@ defineOgImageComponent('About', {
             </div>
           </div>
           <div class="sm:hidden block col-span-3 pb-5 dark:text-[#F1F2F4]">
-            <NuxtImg src="/riyad.jpg" width="125" height="115" quality="50" class="rounded-md" />
+            <NuxtImg src="/image-10-resized.png" width="125" height="115" quality="50" class="rounded-md" />
           </div>
         </div>
         <h3 class="text-base sm:text-3xl font-semibold pb-7 sm:pb-12">
