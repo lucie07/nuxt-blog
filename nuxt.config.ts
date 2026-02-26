@@ -28,6 +28,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/nuxt-blog/', 
     head: {
       charset: 'utf-16',
       viewport: 'width=device-width,initial-scale=1',
@@ -52,6 +53,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'github_pages',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/rss.xml'],
