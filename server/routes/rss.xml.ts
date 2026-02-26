@@ -1,6 +1,6 @@
 import { Feed } from 'feed'
 
-const basePath = 'https://blog-nurriyad.vercel.app'
+const basePath = 'https://lucie07.github.io/nuxt-blog'
 
 export default defineEventHandler(async (event) => {
   setHeader(event, 'content-type', 'text/xml')
