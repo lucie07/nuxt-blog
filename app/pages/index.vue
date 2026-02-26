@@ -7,7 +7,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Hello. I'm Lucie Mingmei Hao. Web, research and design',
+        "Hello. I'm Lucie Mingmei Hao. Web, research and design",
     },
   ],
 })
