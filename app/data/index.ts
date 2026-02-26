@@ -12,7 +12,7 @@ export const footerData = {
 }
 
 export const homePage = {
-  title: 'Hello hello hello hello hello',
+  title: "Hello. I'm Lucie Mingmei Hao.",
   description:
     'Web, research and design',
 }
