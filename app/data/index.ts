@@ -12,9 +12,9 @@ export const footerData = {
 }
 
 export const homePage = {
-  title: 'Welcome To My Blog Site',
+  title: 'Hello hello hello hello hello',
   description:
-    'Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
+    'Web, research and design',
 }
 
 export const blogsPage = {
