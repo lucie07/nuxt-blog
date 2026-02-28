@@ -20,7 +20,7 @@ const { data } = await useAsyncData('recent-post', () =>
           const bDate = parseCustomDate(b.meta.date as string)
           return bDate.getTime() - aDate.getTime()
         })
-        .slice(0, 3)
+        .slice(0, 30)
     }),
 )
 
