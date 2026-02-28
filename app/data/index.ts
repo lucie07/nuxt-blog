@@ -1,9 +1,9 @@
 export const navbarData = {
-  homeTitle: "Riyad's Blog",
+  homeTitle: "Lucie",
 }
 
 export const footerData = {
-  author: 'Al Asad Nur Riyad',
+  author: 'Lucie Mingmei Hao',
   aboutAuthor: 'Hi! I am Riyad, a Tech enthusiast, problem solver and software engineer. Currently working at FieldNation LLC.',
   authorInterest:
     "I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt. If you have an interesting idea, either open source or paid let's connect.",
