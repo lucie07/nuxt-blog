@@ -14,7 +14,11 @@ import { homePage } from '~/data'
         </p>
       </div>
       <div class="px-6 justify-self-center">
-        <LogoDog />
+        <img
+          src="/public/image-10-resized.png"
+          alt="landing page feature image"
+          class="max-w-[260px] w-full h-auto"
+        />
       </div>
     </div>
   </div>
