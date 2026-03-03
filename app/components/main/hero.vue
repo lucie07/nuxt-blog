@@ -17,14 +17,15 @@ import { homePage } from '~/data'
       <div class="absolute inset-0 bg-black/30"></div>
 
       <!-- Text overlay -->
-      <div class="absolute inset-0 flex items-center">
-        <div class="max-w-2xl p-6 sm:p-10">
-          <h1 class="text-white font-semibold leading-tight text-4xl md:text-5xl my-3">
+      <div class="absolute inset-0 flex items-center justify-center text-center">
+        <div class="max-w-3xl p-6 sm:p-10">
+          <h1 class="text-white font-semibold leading-tight text-4xl md:text-5xl">
             {{ homePage.title }}
           </h1>
-          <p class="text-white/90 text-base md:text-lg">
+
+          <h3 class="mt-3 text-white/90 font-medium text-xl md:text-2xl">
             {{ homePage.description }}
-          </p>
+          </h3>
         </div>
       </div>
     </div>
