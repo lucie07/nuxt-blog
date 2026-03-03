@@ -15,7 +15,7 @@ import { homePage } from '~/data'
       </div>
       <div class="px-6 justify-self-center">
         <img
-          src="/public/image-10-resized.png"
+          src="/image-10-resized.png"
           alt="landing page feature image"
           class="max-w-[260px] w-full h-auto"
         />
