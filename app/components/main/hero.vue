@@ -3,7 +3,7 @@ import { homePage } from '~/data'
 </script>
 
 <template>
-  <div class="relative overflow-hidden">
+  <section class="hero-fullbleed relative overflow-hidden">
     <!-- Background image -->
     <img
       src="/image-10-resized.png"
@@ -26,5 +26,5 @@ import { homePage } from '~/data'
         </h3>
       </div>
     </div>
-  </div>
+  </section>
 </template>
