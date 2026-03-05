@@ -5,7 +5,9 @@ import { homePage } from '~/data'
 <template>
   <div class="container mx-auto px-6">
     <!-- HERO WRAPPER -->
-    <div class="hero-fullbleed relative overflow-hidden rounded-2xl">
+    <div class="relative overflow-hidden rounded-2xl
+             w-screen max-w-none
+             left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
       <!-- Background image -->
       <img
         src="/image-10-resized.png"
