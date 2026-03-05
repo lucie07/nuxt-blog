@@ -22,9 +22,14 @@ defineOgImageComponent('About', {
 </script>
 
 <template>
-  <main class="container max-w-5xl mx-auto text-zinc-600">
+  <div>
+    <!-- Full-width hero -->
     <MainHero />
-    <MainRecent />
-    <MainTrending />
-  </main>
+
+    <!-- Keep the rest constrained -->
+    <main class="container max-w-5xl mx-auto text-zinc-600">
+      <MainRecent />
+      <MainTrending />
+    </main>
+  </div>
 </template>
