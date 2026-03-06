@@ -10,8 +10,8 @@ useHead({
 </script>
 
 <template>
-  <div class="bg-[#F1F2F4] dark:text-zinc-300 dark:bg-slate-950">
-    <NuxtLoadingIndicator :height="4" color="#0284c7" error-color="#ef4444" />
+  <div class="bg-[#FFFEFB] dark:text-zinc-300 dark:bg-slate-950">
+    <NuxtLoadingIndicator :height="4" color="#FFB405" error-color="#ef4444" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
