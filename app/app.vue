@@ -11,7 +11,7 @@ useHead({
 
 <template>
   <div class="bg-[#FFFEFB] dark:text-zinc-300 dark:bg-slate-950">
-    <NuxtLoadingIndicator :height="4" color="#FFB405" error-color="#ef4444" />
+    <NuxtLoadingIndicator :height="4" color="#755200" error-color="#ef4444" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
