@@ -25,37 +25,42 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <article class="group border dark:border-gray-800 m-2 rounded-2xl overflow-hidden shadow-sm text-zinc-700 dark:text-zinc-300">
-    <NuxtLink :to="path" class="grid grid-cols-1 sm:grid-cols-10 gap-1">
-      <div class="sm:col-span-3">
-        <NuxtImg
-          class="h-full w-full object-cover object-center rounded-t-2xl sm:rounded-l-2xl sm:rounded-t-none shadow-lg group-hover:scale-[1.02] transition-all duration-500"
-          width="300"
-          :src="image"
-          :alt="alt"
-        />
-      </div>
-      <div class="sm:col-span-7 p-5">
+  <article class="group border dark:border-gray-800 m-2 overflow-hidden rounded-2xl shadow-sm text-zinc-700 dark:text-zinc-300">
+    <NuxtLink :to="path">
+      <NuxtImg
+        class="lg:h-48 md:h-36 w-full object-cover object-center rounded-t-2xl shadow-lg group-hover:scale-[1.02] transition-all duration-500"
+        width="300"
+        :src="image"
+        :alt="alt"
+      />
+      <div class="px-4 pb-4">
         <h2
-          class="text-xl font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-[#996B00] dark:group-hover:text-[#996B00]"
+          class="text-xl font-semibold text-black dark:text-zinc-300 pt-4 pb-1 group-hover:text-[#996B00] dark:group-hover:text-[#996B00]"
         >
           {{ title }}
         </h2>
         <p class="text-ellipsis line-clamp-2">
           {{ description }}
         </p>
-        <div class="text-black dark:text-zinc-300 text-sm mt-2 mb-1 md:flex md:space-x-6">
+
+        <div class="text-black dark:text-zinc-300 text-sm mt-3 mb-1 space-y-2">
           <div class="flex items-center">
             <LogoDate class="-translate-y-[10%]" />
             <p>{{ date }}</p>
           </div>
+
           <div class="flex items-center gap-1 flex-wrap">
             <LogoTag />
-            <p v-for="tag in tags" :key="tag" class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold">
+            <p
+              v-for="tag in tags"
+              :key="tag"
+              class="bg-gray-200 dark:bg-slate-900 rounded-md px-2 py-1 font-semibold text-xs"
+            >
               {{ tag }}
             </p>
           </div>
         </div>
+
         <div class="flex group-hover:underline text-[#996B00] dark:text-[#996B00] items-center pt-2">
           <p>Read More</p>
           <LogoArrow />
