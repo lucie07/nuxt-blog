@@ -42,7 +42,7 @@ withDefaults(defineProps<Props>(), {
           <div class="flex items-center gap-1 flex-wrap">
             <LogoTag />
             <template v-for="tag in tags" :key="tag">
-              <span class="bg-[#FFF5E0] dark:bg-[#FFF5E0] rounded-md px-2 py-1 space-x-2 text-xs">
+              <span class="bg-[#FFECC7] dark:bg-[#FFECC7] rounded-md px-2 py-1 space-x-2 text-xs">
                 {{ tag }}
               </span>
             </template>
