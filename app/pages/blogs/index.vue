@@ -98,7 +98,7 @@ defineOgImage({
       />
     </div>
 
-    <div v-auto-animate class="space-y-5 my-5 px-4">
+    <div v-auto-animate class="grid grid-cols-1 md:grid-cols-2 gap-5 my-5 px-4">
       <template v-for="post in paginatedData" :key="post.title">
         <ArchiveCard
           :path="post.path"
