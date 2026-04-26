@@ -54,7 +54,7 @@ withDefaults(defineProps<Props>(), {
             <p
               v-for="tag in tags"
               :key="tag"
-              class="bg-[#FFECC7] dark:bg-[#FFECC7] rounded-md px-2 py-1 space-x-2 text-xs"
+              class="bg-[#FFECC7] text-[#5C3D00] dark:bg-[#996B00] dark:text-[#FFF4D6] rounded-md px-2 py-1 space-x-2 text-xs"
             >
               {{ tag }}
             </p>
