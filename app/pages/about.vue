@@ -22,18 +22,19 @@ defineOgImageComponent('About', {
 <template>
   <div class="py-5">
     <div class="px-6 py-5 sm:py-9 container max-w-3xl mx-auto">
-      <h1 class="text-xl sm:text-4xl pb-4 font-bold">
+      <h1 class="text-xl sm:text-4xl pb-6 font-bold">
         {{ aboutPage.title }}
       </h1>
 
       <NuxtImg
-        src="/lucie-mingmei-hao.jpg"
-        width="450"
-        height="500"
-        quality="50"
-        class="rounded-md mb-6 w-full max-w-sm"
+        src="/image-10-resized.png"
+        width="200"
+        height="200"
+        quality="70"
+        class="rounded-md mb-8 w-[200px] h-auto"
       />
 
+      <!--
       <div class="my-3 space-x-2 md:space-x-3 pb-10">
         <NuxtLink
           :to="socialLinks.githubLink"
@@ -68,6 +69,7 @@ defineOgImageComponent('About', {
           <Icon name="fa:stack-overflow" size="1em" class="-translate-y-[-10%]" />
         </NuxtLink>
       </div>
+      -->
 
       <h3 class="text-base sm:text-3xl font-semibold pb-7 sm:pb-12">
         {{ aboutPage.description }}
