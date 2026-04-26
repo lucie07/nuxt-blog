@@ -31,7 +31,7 @@ defineOgImageComponent('About', {
         width="200"
         height="200"
         quality="70"
-        class="rounded-md mb-8 w-[200px] h-auto"
+        class="rounded-md mb-2 w-[200px] h-auto"
       />
 
       <!--
