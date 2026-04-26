@@ -10,7 +10,7 @@ import { homePage } from '~/data'
              left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
       <!-- Background image -->
       <img
-        src="/image-10-resized.png"
+        src="/feature-image.png"
         alt="landing page feature image"
         class="w-full h-[320px] sm:h-[420px] md:h-[520px] object-cover"
       />
