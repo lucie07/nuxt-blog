@@ -49,7 +49,7 @@ withDefaults(defineProps<Props>(), {
           <template v-for="tag in tags" :key="tag">
             <NuxtLink :to="`/categories/${tag.toLocaleLowerCase()}`">
               <span
-                class="bg-[#FFECC7] text-[#5C3D00] dark:bg-[#996B00] dark:text-[#FFF4D6] rounded-md px-2 py-1 font-semibold hover:bg-gray-300 dark:hover:bg-slate-800 transition-colors duration-200"
+                class="bg-[#FFECC7] text-[#5C3D00] dark:bg-[#996B00] dark:text-[#FFF4D6] rounded-md px-2 py-1 font-semibold hover:bg-[#FFE0A3] dark:hover:bg-[#664700] transition-colors duration-200"
                 >{{ tag }}</span
               >
             </NuxtLink>
