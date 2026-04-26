@@ -157,6 +157,7 @@ defineOgImageComponent('Test', {
         </div>
       </div>
 
+      <!--
       <div class="flex flex-row flex-wrap md:flex-nowrap mt-10 gap-2">
         <ClientOnly>
           <SocialShare
@@ -170,6 +171,7 @@ defineOgImageComponent('Test', {
           />
         </ClientOnly>
       </div>
+      -->
 
       <!-- Previous and Next Blog Navigation -->
       <BlogNavigation :previous-post="previousPost" :next-post="nextPost" />
