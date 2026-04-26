@@ -75,7 +75,15 @@ defineOgImageComponent('About', {
         {{ aboutPage.description }}
       </h3>
 
-      <p>{{ aboutPage.aboutMe }}</p>
+      <div class="space-y-5 text-base leading-7">
+        <p
+          v-for="paragraph in aboutPage.aboutMe"
+          :key="paragraph"
+        >
+          {{ paragraph }}
+        </p>
+      </div>
+
     </div>
   </div>
 </template>
