@@ -28,12 +28,24 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: '/nuxt-blog/', 
+    baseURL: '/nuxt-blog/',
     head: {
       charset: 'utf-16',
       viewport: 'width=device-width,initial-scale=1',
       title: seoData.title,
       titleTemplate: `%s - ${seoData.title}`,
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/nuxt-blog/favicon.ico',
+        },
+        {
+          rel: 'shortcut icon',
+          type: 'image/x-icon',
+          href: '/nuxt-blog/favicon.ico',
+        },
+      ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
