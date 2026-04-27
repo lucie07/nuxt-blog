@@ -9,12 +9,14 @@ function parseCustomDate(dateStr: string): Date {
   return new Date(cleanDateStr)
 }
 
-// Get Last 6 Publish Post from the content/blog directory
+// Get Last 30 Publish Post from the content/blog directory
 const { data } = await useAsyncData('recent-post', () =>
   queryCollection('content')
+    .where('path', 'LIKE', '/blogs/%')
     .all()
     .then((data) => {
       return data
+        .filter((post) => post.meta?.published !== false && post.meta?.date)
         .sort((a, b) => {
           const aDate = parseCustomDate(a.meta.date as string)
           const bDate = parseCustomDate(b.meta.date as string)
