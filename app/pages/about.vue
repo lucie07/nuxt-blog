@@ -75,10 +75,12 @@ defineOgImageComponent('About', {
       </div>
       -->
 
+      <!--
       <h3 class="text-base sm:text-3xl font-semibold pb-6 sm:pb-12">
         {{ aboutPage.description }}
       </h3>
-
+      -->
+      
       <div class="prose prose-zinc dark:prose-invert max-w-none">
         <ContentRenderer
           v-if="aboutContent"
