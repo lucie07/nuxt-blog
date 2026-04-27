@@ -4,8 +4,14 @@ export const useBlogNavigation = async (currentPath: string) => {
   // Fetch all blog posts
   const { data: allBlogs } = await useAsyncData('all-blogs-for-navigation', () =>
     queryCollection('content')
-      .where('path', 'LIKE', '/blogs/%')
       .all()
+      .then((posts) => {
+        return posts.filter((post) =>
+          post.path?.startsWith('/blogs/')
+          && post.path !== '/blogs/about'
+          && post.path !== '/about'
+        )
+      })
   )
 
   // Find current post index
