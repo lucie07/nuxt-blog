@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { aboutPage, footerData, navbarData, socialLinks } from '~/data'
 
+const { data: aboutContent } = await useAsyncData('about-content', () =>
+  queryCollection('content').path('/about').first()
+)
+
 useHead({
   title: 'About',
   meta: [
@@ -75,13 +79,11 @@ defineOgImageComponent('About', {
         {{ aboutPage.description }}
       </h3>
 
-      <div class="space-y-5 text-base leading-7">
-        <p
-          v-for="paragraph in aboutPage.aboutMe"
-          :key="paragraph"
-        >
-          {{ paragraph }}
-        </p>
+      <div class="prose prose-zinc dark:prose-invert max-w-none">
+        <ContentRenderer
+          v-if="aboutContent"
+          :value="aboutContent"
+        />
       </div>
 
     </div>
