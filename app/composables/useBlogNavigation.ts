@@ -2,7 +2,11 @@ import type { ContentItem } from '@/types/blog'
 
 export const useBlogNavigation = async (currentPath: string) => {
   // Fetch all blog posts
-  const { data: allBlogs } = await useAsyncData('all-blogs-for-navigation', () => queryCollection('content').all())
+  const { data: allBlogs } = await useAsyncData('all-blogs-for-navigation', () =>
+    queryCollection('content')
+      .where('path', 'LIKE', '/blogs/%')
+      .all()
+  )
 
   // Find current post index
   const currentPostIndex = computed(() => {
