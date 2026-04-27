@@ -2,7 +2,7 @@
 import { aboutPage, footerData, navbarData, socialLinks } from '~/data'
 
 const { data: aboutContent } = await useAsyncData('about-content', () =>
-  queryCollection('content').path('/about').first()
+  queryCollection('content').path('/blogs/about').first()
 )
 
 useHead({
