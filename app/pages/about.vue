@@ -2,7 +2,7 @@
 import { aboutPage, footerData, navbarData, socialLinks } from '~/data'
 
 const { data: aboutContent } = await useAsyncData('about-content', () =>
-  queryCollection('content').path('/blogs/about').first()
+  queryCollection('content').path('/about').first()
 )
 
 useHead({
@@ -80,7 +80,7 @@ defineOgImageComponent('About', {
         {{ aboutPage.description }}
       </h3>
       -->
-      
+
       <div class="prose prose-zinc dark:prose-invert max-w-none">
         <ContentRenderer
           v-if="aboutContent"
