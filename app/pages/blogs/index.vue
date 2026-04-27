@@ -2,7 +2,11 @@
 import Fuse from 'fuse.js'
 import type { BlogPost } from '~/types/blog'
 
-const { data } = await useAsyncData('all-blog-post', () => queryCollection('content').all())
+const { data } = await useAsyncData('all-blog-post', () =>
+  queryCollection('content')
+    .where('path', 'LIKE', '/blogs/%')
+    .all()
+)
 
 const elementPerPage = ref(10)
 const pageNumber = ref(1)
