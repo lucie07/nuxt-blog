@@ -2,6 +2,15 @@
 import Fuse from 'fuse.js'
 import type { BlogPost } from '~/types/blog'
 
+function parseCustomDate(dateStr?: string): Date {
+  if (!dateStr) return new Date(0)
+
+  const cleanDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, '$1')
+  const parsedDate = new Date(cleanDateStr)
+
+  return Number.isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate
+}
+
 const { data } = await useAsyncData('all-blog-post', () =>
   queryCollection('content')
     .where('path', 'LIKE', '/blogs/%')
@@ -14,20 +23,32 @@ const searchTest = ref('')
 
 const formattedData = computed(() => {
   return (
-    data.value?.map((articles) => {
-      const meta = articles.meta as unknown as BlogPost
-      return {
-        path: articles.path,
-        title: articles.title || 'no-title available',
-        description: articles.description || 'no-description available',
-        image: meta.image || '/not-found.jpg',
-        alt: meta.alt || 'no alter data available',
-        ogImage: meta.ogImage || '/not-found.jpg',
-        date: meta.date || 'not-date-available',
-        tags: meta.tags || [],
-        published: meta.published || false,
-      }
-    }) || []
+    data.value
+      ?.filter((articles) => {
+        return (
+          articles.path?.startsWith('/blogs/') &&
+          articles.path !== '/blogs/about' &&
+          articles.path !== '/about'
+        )
+      })
+      .map((articles) => {
+        const meta = articles.meta as unknown as BlogPost
+
+        return {
+          path: articles.path,
+          title: articles.title || 'no-title available',
+          description: articles.description || 'no-description available',
+          image: meta.image || '/not-found.jpg',
+          alt: meta.alt || 'no alter data available',
+          ogImage: meta.ogImage || '/not-found.jpg',
+          date: meta.date || 'not-date-available',
+          tags: meta.tags || [],
+          published: meta.published || false,
+        }
+      })
+      .sort((a, b) => {
+        return parseCustomDate(b.date).getTime() - parseCustomDate(a.date).getTime()
+      }) || []
   )
 })
 
