@@ -1,17 +1,8 @@
 import type { ContentItem } from '@/types/blog'
 
 export const useBlogNavigation = async (currentPath: string) => {
-  // Fetch all posts, but exclude non-blog pages such as About
-  const { data: allBlogs } = await useAsyncData('all-blogs-for-navigation', () =>
-    queryCollection('content')
-      .all()
-      .then((posts) => {
-        return posts.filter((post) =>
-          post.path !== '/about' &&
-          post.path !== '/blogs/about'
-        )
-      })
-  )
+  // Fetch all blog posts
+  const { data: allBlogs } = await useAsyncData('all-blogs-for-navigation', () => queryCollection('content').all())
 
   // Find current post index
   const currentPostIndex = computed(() => {
