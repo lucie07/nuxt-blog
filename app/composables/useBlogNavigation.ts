@@ -12,50 +12,55 @@ function parseCustomDate(dateStr?: string): Date {
   if (!dateStr) return new Date(0)
 
   const cleanDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, '$1')
-  return new Date(cleanDateStr)
+  const parsedDate = new Date(cleanDateStr)
+
+  return Number.isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate
+}
+
+function isRealBlogPost(post: ContentItem): boolean {
+  const postPath = normalizePath(post.path)
+
+  return (
+    postPath.startsWith('/blogs/') &&
+    postPath !== '/blogs/about' &&
+    postPath !== '/about'
+  )
+}
+
+function sortBlogsByDateDesc(a: ContentItem, b: ContentItem): number {
+  const aDate = parseCustomDate(a.meta?.date as string)
+  const bDate = parseCustomDate(b.meta?.date as string)
+
+  return bDate.getTime() - aDate.getTime()
 }
 
 export const useBlogNavigation = async (currentPath: string) => {
   const normalizedCurrentPath = normalizePath(currentPath)
-  const asyncDataKey = `blog-navigation-${normalizedCurrentPath.replace(/[^\w-]/g, '-')}`
 
-  // Fetch real blog posts only
-  const { data: allBlogs } = await useAsyncData(asyncDataKey, () =>
-    queryCollection('content')
-      .all()
-      .then((posts) => {
-        return posts
-          .filter((post) => {
-            const postPath = normalizePath(post.path)
+  // Fetch one canonical list of real blog posts only.
+  // Important: keep this key unique to navigation so it does not share cached data
+  // with homepage recent blogs or archive queries.
+  const { data: allBlogs } = await useAsyncData('blog-navigation-all-posts', async () => {
+    const posts = await queryCollection('content').all()
 
-            return (
-              postPath.startsWith('/blogs/') &&
-              postPath !== '/blogs/about' &&
-              postPath !== '/about'
-            )
-          })
-          .sort((a, b) => {
-            const aDate = parseCustomDate(a.meta?.date as string)
-            const bDate = parseCustomDate(b.meta?.date as string)
+    return (posts as unknown as ContentItem[])
+      .filter(isRealBlogPost)
+      .sort(sortBlogsByDateDesc)
+  })
 
-            return bDate.getTime() - aDate.getTime()
-          })
-      })
-  )
-
-  // Find current post index
+  // Find current post index in the canonical blog list
   const currentPostIndex = computed(() => {
-    const blogs = allBlogs.value as unknown as ContentItem[] | null
+    const blogs = allBlogs.value as ContentItem[] | null
     if (!blogs) return -1
 
-    return blogs.findIndex((post: ContentItem) => {
+    return blogs.findIndex((post) => {
       return normalizePath(post.path) === normalizedCurrentPath
     })
   })
 
-  // Get previous post
+  // Previous post means the item before the current post in the canonical list
   const previousPost = computed(() => {
-    const blogs = allBlogs.value as unknown as ContentItem[] | null
+    const blogs = allBlogs.value as ContentItem[] | null
 
     if (!blogs || currentPostIndex.value <= 0) return null
 
@@ -68,11 +73,15 @@ export const useBlogNavigation = async (currentPath: string) => {
     }
   })
 
-  // Get next post
+  // Next post means the item after the current post in the canonical list
   const nextPost = computed(() => {
-    const blogs = allBlogs.value as unknown as ContentItem[] | null
+    const blogs = allBlogs.value as ContentItem[] | null
 
-    if (!blogs || currentPostIndex.value === -1 || currentPostIndex.value >= blogs.length - 1) {
+    if (
+      !blogs ||
+      currentPostIndex.value === -1 ||
+      currentPostIndex.value >= blogs.length - 1
+    ) {
       return null
     }
 
