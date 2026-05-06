@@ -27,7 +27,7 @@ defineProps<Props>()
       <div class="flex-1 min-w-0">
         <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wide mb-1">Previous</p>
         <p
-          class="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-[#FFD77A] dark:group-hover:text-[#FFD77A] line-clamp-2 transition-colors duration-300"
+          class="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-[#996B00] dark:group-hover:text-[#FFD77A] line-clamp-2 transition-colors duration-300"
         >
           {{ previousPost.title }}
         </p>
@@ -45,7 +45,7 @@ defineProps<Props>()
       <div class="flex-1 text-right min-w-0">
         <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wide mb-1">Next</p>
         <p
-          class="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-[#FFD77A] dark:group-hover:text-[#FFD77A] line-clamp-2 transition-colors duration-300"
+          class="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-[#996B00] dark:group-hover:text-[#FFD77A] line-clamp-2 transition-colors duration-300"
         >
           {{ nextPost.title }}
         </p>
