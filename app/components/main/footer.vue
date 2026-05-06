@@ -5,13 +5,15 @@ const path = computed(() => route.fullPath.replace('/', ''))
 </script>
 
 <template>
-  <div class="py-5 border-t dark:border-gray-800 mt-5 text-zinc-700 dark:text-zinc-300">
+  <footer class="mt-16 border-t border-[#FFD77A]/60 dark:border-[#FFD77A]/30 bg-[#FFF8E8]/50 dark:bg-slate-950/40">
     <div class="px-6 container max-w-5xl mx-auto">
-      <div class="border-t dark:border-gray-800 mt-5 text-center p-2">
-        © 2026 Lucie Mingmei Hao
+      <div class="py-10 md:py-12 flex flex-col items-center justify-center gap-3 text-center">
+        <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          © 2026 Lucie Mingmei Hao
+        </p>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <style>
