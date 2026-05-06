@@ -14,9 +14,9 @@ useHead({
 
 // Generate OG Image
 defineOgImageComponent('About', {
-  headline: 'Greetings 👋',
+  headline: 'Hello there',
   title: navbarData.homeTitle,
-  description: 'Dive into web development with me and learn Js, Ts, Vue, Nuxt, Docker, k8s',
+  description: 'Web, research and design',
   link: '/image-10-resized.png',
 })
 </script>
@@ -29,7 +29,7 @@ defineOgImageComponent('About', {
     <!-- Keep the rest constrained -->
     <main class="container max-w-5xl mx-auto text-zinc-600">
       <MainRecent />
-      <MainTrending />
+    <!-- <MainTrending /> -->
     </main>
   </div>
 </template>
